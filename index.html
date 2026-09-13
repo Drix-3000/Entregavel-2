@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos Clássicos em JavaScript</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f7f6;
+      color: #333;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #2c3e50;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card h2 {
+      font-size: 1.25rem;
+      color: #34495e;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #ecf0f1;
+      padding-bottom: 5px;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #7f8c8d;
+      margin-bottom: 15px;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .result {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #eef9f6;
+      border-left: 4px solid #2ecc71;
+      font-weight: bold;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Algoritmos e Estruturas de Dados</h1>
+
+  <div class="container">
+
+    <!-- 1. Número Primo -->
+    <div class="card">
+      <div>
+        <h2>1. Número Primo</h2>
+        <p>Verifica se um número inteiro positivo é primo.</p>
+        <div class="input-group">
+          <label for="primoInput">Número (N):</label>
+          <input type="number" id="primoInput" placeholder="Ex: 7" min="1">
+        </div>
+      </div>
+      <div>
+        <button onclick="executarPrimo()">Verificar Primo</button>
+        <div class="result" id="primoResult">Resultado aparecerá aqui...</div>
+      </div>
+    </div>
+
+    <!-- 2. Somatório -->
+    <div class="card">
+      <div>
+        <h2>2. Somatório</h2>
+        <p>Soma um conjunto de números separados por vírgula.</p>
+        <div class="input-group">
+          <label for="somaInput">Números (separados por vírgula):</label>
+          <input type="text" id="somaInput" placeholder="Ex: 10, 20, 30, 5">
+        </div>
+      </div>
+      <div>
+        <button onclick="executarSomatorio()">Calcular Soma</button>
+        <div class="result" id="somaResult">Resultado aparecerá aqui...</div>
+      </div>
+    </div>
+
+    <!-- 3. Fibonacci -->
+    <div class="card">
+      <div>
+        <h2>3. Fibonacci</h2>
+        <p>Gera a sequência até os N primeiros termos (N > 1).</p>
+        <div class="input-group">
+          <label for="fiboInput">Quantidade de termos (N):</label>
+          <input type="number" id="fiboInput" placeholder="Ex: 8" min="2">
+        </div>
+      </div>
+      <div>
+        <button onclick="executarFibonacci()">Gerar Sequência</button>
+        <div class="result" id="fiboResult">Resultado aparecerá aqui...</div>
+      </div>
+    </div>
+
+    <!-- 4. Máximo Divisor Comum (MDC) -->
+    <div class="card">
+      <div>
+        <h2>4. Máximo Divisor Comum (MDC)</h2>
+        <p>Encontra o maior inteiro que divide a e b.</p>
+        <div class="input-group">
+          <label for="mdcA">Número A:</label>
+          <input type="number" id="mdcA" placeholder="Ex: 24">
+        </div>
+        <div class="input-group">
+          <label for="mdcB">Número B:</label>
+          <input type="number" id="mdcB" placeholder="Ex: 36">
+        </div>
+      </div>
+      <div>
+        <button onclick="executarMDC()">Calcular MDC</button>
+        <div class="result" id="mdcResult">Resultado aparecerá aqui...</div>
+      </div>
+    </div>
+
+    <!-- 5. Ordenação (QuickSort) -->
+    <div class="card">
+      <div>
+        <h2>5. Ordenação (QuickSort)</h2>
+        <p>Ordena um conjunto de números usando o algoritmo QuickSort.</p>
+        <div class="input-group">
+          <label for="sortInput">Números (separados por vírgula):</label>
+          <input type="text" id="sortInput" placeholder="Ex: 4, 2, 9, 1, 5">
+        </div>
+      </div>
+      <div>
+        <button onclick="executarQuickSort()">Ordenar Array</button>
+        <div class="result" id="sortResult">Resultado aparecerá aqui...</div>
+      </div>
+    </div>
+
+    <!-- 6. Contagem -->
+    <div class="card">
+      <div>
+        <h2>6. Contagem de Inteiros</h2>
+        <p>Conta quantos valores inteiros existem entre o 1º elemento (inclusive) e o valor de N (inclusive).</p>
+        <div class="input-group">
+          <label for="contagemInput">Conjunto de dados (separados por vírgula):</label>
+          <input type="text" id="contagemInput" placeholder="Ex: 3, 5, 4.5, 8, 12, 10">
+        </div>
+        <div class="input-group">
+          <label for="contagemN">Valor limite de N:</label>
+          <input type="number" id="contagemN" placeholder="Ex: 10">
+        </div>
+      </div>
+      <div>
+        <button onclick="executarContagem()">Contar Valores</button>
+        <div class="result" id="contagemResult">Resultado aparecerá aqui...</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // ------------------------------------------------------------------------
+    // LÓGICA DOS ALGORITMOS (FUNÇÕES PURAS)
+    // ------------------------------------------------------------------------
+
+    // 1. Número é primo
+    function isPrimo(n) {
+      if (n <= 1) return false;
+      for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+      }
+      return true;
+    }
+
+    // 2. Somatório
+    function somatorio(arr) {
+      return arr.reduce((acc, curr) => acc + curr, 0);
+    }
+
+    // 3. Fibonacci
+    function fibonacci(n) {
+      if (n <= 1) return [0];
+      const seq = [0, 1];
+      for (let i = 2; i < n; i++) {
+        seq.push(seq[i - 1] + seq[i - 2]);
+      }
+      return seq;
+    }
+
+    // 4. Máximo Divisor Comum (MDC) - Algoritmo de Euclides
+    function mdc(a, b) {
+      a = Math.abs(a);
+      b = Math.abs(b);
+      while (b) {
+        let temp = b;
+        b = a % b;
+        a = temp;
+      }
+      return a;
+    }
+
+    // 5. Ordenação Quicksort
+    function quickSort(arr) {
+      if (arr.length <= 1) return arr;
+
+      const pivo = arr[arr.length - 1];
+      const esquerdas = [];
+      const direitos = [];
+
+      for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] < pivo) {
+          esquerdas.push(arr[i]);
+        } else {
+          direitos.push(arr[i]);
+        }
+      }
+
+      return [...quickSort(esquerdas), pivo, ...quickSort(direitos)];
+    }
+
+    // 6. Contagem
+    // Conta quantos inteiros existem no array dentro do intervalo [primeiroElemento, N]
+    function contagem(arr, N) {
+      if (arr.length === 0) return 0;
+      const primeiro = arr[0];
+      const min = Math.min(primeiro, N);
+      const max = Math.max(primeiro, N);
+
+      let contador = 0;
+      for (let valor of arr) {
+        if (Number.isInteger(valor) && valor >= min && valor <= max) {
+          contador++;
+        }
+      }
+      return contador;
+    }
+
+
+    // ------------------------------------------------------------------------
+    // INTERAÇÃO COM A INTERFACE (DOM)
+    // ------------------------------------------------------------------------
+
+    function executarPrimo() {
+      const val = parseInt(document.getElementById('primoInput').value);
+      const resEl = document.getElementById('primoResult');
+      
+      if (isNaN(val)) {
+        resEl.textContent = "Por favor, insira um número válido.";
+        return;
+      }
+
+      const resultado = isPrimo(val);
+      resEl.textContent = resultado 
+        ? `O número ${val} É PRIMO.` 
+        : `O número ${val} NÃO é primo.`;
+    }
+
+    function executarSomatorio() {
+      const rawInput = document.getElementById('somaInput').value;
+      const arr = rawInput.split(',').map(v => parseFloat(v.trim())).filter(v => !isNaN(v));
+      const resEl = document.getElementById('somaResult');
+
+      if (arr.length === 0) {
+        resEl.textContent = "Insira números válidos separados por vírgula.";
+        return;
+      }
+
+      const res = somatorio(arr);
+      resEl.textContent = `Soma total: ${res}`;
+    }
+
+    function executarFibonacci() {
+      const n = parseInt(document.getElementById('fiboInput').value);
+      const resEl = document.getElementById('fiboResult');
+
+      if (isNaN(n) || n <= 1) {
+        resEl.textContent = "Insira um valor de N maior que 1.";
+        return;
+      }
+
+      const seq = fibonacci(n);
+      resEl.textContent = `Sequência: ${seq.join(', ')}`;
+    }
+
+    function executarMDC() {
+      const a = parseInt(document.getElementById('mdcA').value);
+      const b = parseInt(document.getElementById('mdcB').value);
+      const resEl = document.getElementById('mdcResult');
+
+      if (isNaN(a) || isNaN(b)) {
+        resEl.textContent = "Insira dois números inteiros válidos.";
+        return;
+      }
+
+      const res = mdc(a, b);
+      resEl.textContent = `MDC(${a}, ${b}) = ${res}`;
+    }
+
+    function executarQuickSort() {
+      const rawInput = document.getElementById('sortInput').value;
+      const arr = rawInput.split(',').map(v => parseFloat(v.trim())).filter(v => !isNaN(v));
+      const resEl = document.getElementById('sortResult');
+
+      if (arr.length === 0) {
+        resEl.textContent = "Insira números válidos separados por vírgula.";
+        return;
+      }
+
+      const ordenado = quickSort(arr);
+      resEl.textContent = `Ordenado: [ ${ordenado.join(', ')} ]`;
+    }
+
+    function executarContagem() {
+      const rawInput = document.getElementById('contagemInput').value;
+      const N = parseFloat(document.getElementById('contagemN').value);
+      const resEl = document.getElementById('contagemResult');
+
+      const arr = rawInput.split(',').map(v => parseFloat(v.trim())).filter(v => !isNaN(v));
+
+      if (arr.length === 0 || isNaN(N)) {
+        resEl.textContent = "Preencha um conjunto válido e o valor de N.";
+        return;
+      }
+
+      const primeiro = arr[0];
+      const total = contagem(arr, N);
+      
+      const min = Math.min(primeiro, N);
+      const max = Math.max(primeiro, N);
+
+      resEl.textContent = `Quantidade de inteiros entre ${min} e ${max}: ${total}`;
+    }
+  </script>
+</body>
+</html>
